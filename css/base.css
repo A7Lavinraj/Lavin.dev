@@ -33,7 +33,6 @@ html {
 
 body {
   background: var(--background-light);
-  overflow-x: hidden;
 }
 
 header {

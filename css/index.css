@@ -446,6 +446,7 @@ main {
 section#about {
   min-height: 100vh;
   position: relative;
+  overflow-x: hidden;
 }
 
 .about-heading {
@@ -557,6 +558,7 @@ section#about {
 
 section#works {
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .works-heading {
