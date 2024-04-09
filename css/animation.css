@@ -1,0 +1,36 @@
+@import "base.css";
+
+@keyframes path {
+  0% {
+    fill: transparent;
+    stroke: var(--base-light);
+    stroke-width: 10;
+    stroke-dashoffset: 25%;
+    stroke-dasharray: 0 32%;
+  }
+
+  60% {
+    fill: transparent;
+    stroke: var(--base-light);
+    stroke-width: 10;
+    stroke-dashoffset: 0;
+    stroke-dasharray: 32% 0;
+  }
+
+  100% {
+    fill: var(--base-light);
+    stroke: transparent;
+    stroke-width: 0;
+    stroke-dashoffset: -25%;
+  }
+}
+
+@keyframes loader-text {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0%;
+  }
+}
