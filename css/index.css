@@ -829,10 +829,6 @@ section#works {
 
 /* Contact section */
 
-section#contact {
-  min-height: 100vh;
-}
-
 .contact-heading {
   font-size: 3rem;
   text-align: center;
