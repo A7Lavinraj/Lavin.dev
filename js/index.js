@@ -2,6 +2,12 @@ const YOUR_SERVICE_ID = "service_kf8mc9u";
 const YOUR_TEMPLATE_ID = "template_cb3h6in";
 const YOUR_PUBLIC_ID = "ubHAt0bvrEN3KxEoS";
 
+const elements = document.querySelectorAll(".hidden");
+const navbarLarge = document.querySelector(".navbar#large");
+const navbarSmall = document.querySelector(".navbar#small");
+const cursor = document.querySelector(".cursor");
+const works = document.querySelectorAll(".img-container img");
+
 function onSubmit(event) {
   event.preventDefault();
   const data = new FormData(event.srcElement);
@@ -15,6 +21,19 @@ function onSubmit(event) {
   } catch (error) {
     console.error(error);
   }
+}
+
+function onWindowLoad() {
+  let thresoldHeight = (window.innerHeight / 5) * 4;
+
+  if (navbarLarge.getBoundingClientRect().bottom < 0)
+    navbarSmall.classList.add("show");
+  else navbarSmall.classList.remove("show");
+
+  elements.forEach((element) => {
+    if (thresoldHeight > element.getBoundingClientRect().top)
+      element.classList.add("show");
+  });
 }
 
 /* Hamburger toggle functionality */
@@ -31,29 +50,13 @@ window.addEventListener("load", () => {
     document.querySelector(".loader-container").classList.toggle("hidden");
     document.querySelector(".hero-section").classList.toggle("load");
     document.querySelector(".navbar#large").classList.toggle("load");
+    setTimeout(onWindowLoad, 500);
   }, 3200);
 
   emailjs.init(YOUR_PUBLIC_ID);
   document.querySelector("form").addEventListener("submit", onSubmit);
 
-  const elements = document.querySelectorAll(".hidden");
-  const navbarLarge = document.querySelector(".navbar#large");
-  const navbarSmall = document.querySelector(".navbar#small");
-  const cursor = document.querySelector(".cursor");
-  const works = document.querySelectorAll(".img-container img");
-
-  window.addEventListener("scroll", () => {
-    let thresoldHeight = (window.innerHeight / 5) * 4;
-
-    if (navbarLarge.getBoundingClientRect().bottom < 0)
-      navbarSmall.classList.add("show");
-    else navbarSmall.classList.remove("show");
-
-    elements.forEach((element) => {
-      if (thresoldHeight > element.getBoundingClientRect().top)
-        element.classList.add("show");
-    });
-  });
+  window.addEventListener("scroll", onWindowLoad);
 
   window.addEventListener("mousemove", (event) => {
     cursor.style.left = `${event.clientX}px`;
