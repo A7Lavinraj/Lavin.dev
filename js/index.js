@@ -7,6 +7,7 @@ const navbarLarge = document.querySelector(".navbar#large");
 const navbarSmall = document.querySelector(".navbar#small");
 const cursor = document.querySelector(".cursor");
 const works = document.querySelectorAll(".img-container img");
+const popup = document.querySelector(".popup");
 
 function onSubmit(event) {
   event.preventDefault();
@@ -21,6 +22,10 @@ function onSubmit(event) {
   } catch (error) {
     console.error(error);
   }
+
+  event.target.reset();
+  popup.classList.add("visible");
+  setTimeout(() => popup.classList.remove("visible"), 3000);
 }
 
 function onWindowLoad() {
